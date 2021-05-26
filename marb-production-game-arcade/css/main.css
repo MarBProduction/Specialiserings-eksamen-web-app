@@ -1,0 +1,160 @@
+/* ---------- root variables ---------- */
+:root {
+  --green: #5BDE26;
+  --green-alpha1: rgba(91, 222, 38, 0.65);
+  --green-alpha2: rgba(91, 222, 38, 0.5);
+  --white: #fff;
+  --white-alpha1: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- general styling ---------- */
+html {
+  color: var(--white);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  font-weight: 200;
+}
+
+body {
+  background-image: url(../img/mobile-background.jpg);
+  background-size: 100%;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+/* ---------- topbar styling ---------- */
+.topbar {
+  background-color: var(--green-alpha1);
+  padding: 13.5px;
+  text-transform: uppercase;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+}
+
+.topbar h2 {
+  font-weight: 300;
+}
+
+/* ---------- toolbar styling ---------- */
+.toolbar {
+  background-color: var(--green-alpha1);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  border: solid 4px var(--green);
+  height: 60px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.toolbar #search-icon {
+  max-width: 40px;
+  margin-right: 10px;
+}
+.toolbar #burger-icon {
+  max-width: 40px;
+  margin-left: 10px;
+}
+.toolbar input[type=search] {
+  height: 40px;
+  background-color: var(--white-alpha1);
+  border: solid 3px var(--white);
+  border-radius: 30px;
+  padding: 10px;
+  width: 100%;
+  color: var(--white);
+  font-size: 1.2em;
+}
+.toolbar input[type=search]::placeholder {
+  color: var(--white);
+  opacity: 1;
+  font-style: italic;
+}
+
+/* ---------- page styling ---------- */
+.page {
+  display: none;
+  /*min height is screen height minus height of tab and top bar */
+  min-height: calc(100vh - 110px);
+  animation: fadeIn 0.4s;
+  /* padding equals height of toolbar and topbar */
+  padding: 55px 0;
+}
+
+/* ---------- logo styling ---------- */
+.logo {
+  margin: 2em auto;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* ---------- animations ---------- */
+/* fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- loader styling ---------- */
+#loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: hidden;
+  text-align: center;
+}
+
+.spinner {
+  border: 5px solid var(--green-alpha2);
+  border-radius: 50%;
+  border-top: 5px solid var(--green);
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 1s linear infinite;
+  /* Safari */
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.4s, opacity 0.4s linear;
+}
