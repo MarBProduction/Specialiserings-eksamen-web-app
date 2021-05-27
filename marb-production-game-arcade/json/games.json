@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Tetris",
+    "developer": "Alexey Pajitnov & Vladimir Pokhilko",
+    "released": "1984",
+    "img": "img/tetris.jpg"
+  },
+  {
+    "name": "The Legend Of Zelda",
+    "developer": "Nintendo",
+    "released": "21-02-1986",
+    "img": "img/zelda.jpg"
+  },
+  {
+    "name": "Bloyn",
+    "developer": "MarB Production & thatRumme",
+    "released": "29-04-2018",
+    "img": "img/bloyn.png"
+  },
+  {
+    "name": "Pong",
+    "developer": "Atari",
+    "released": "29-11-1972",
+    "img": "img/pong.jpg"
+  },
+  {
+    "name": "Brick Breaker",
+    "developer": "Unknown",
+    "released": "Unknown",
+    "img": "img/brick-breaker.png"
+  },
+  {
+    "name": "Quake",
+    "developer": "GT Interactive",
+    "released": "22-06-1996",
+    "img": "img/quake.jpg"
+  }
+]

@@ -16,42 +16,18 @@
   <!-- tabbar navigation -->
   <nav class="toolbar">
     <img id="search-icon" src="img/search-icon-white.png" alt="Search">
-    <input type="search" placeholder="Search for a game"> <!--onkeyup="search(this.value)"-->
+    <input type="search" placeholder="Search for a game" onkeyup="search(this.value)">
     <img id="burger-icon" src="img/burger-icon.png" alt="Menu">
   </nav>
 
   <!-- pages -->
   <!-- home page -->
-  <section id="home" class="page">
-    <header class="topbar">
-      <h2>Home</h2>
+  <article id="home" class="page">
+    <header>
+      <h1>MarB Production's Game Arcade</h1>
     </header>
-    <p>MarB Production's Game Arcade</p>
-  </section>
-
-  <!-- about page -->
-  <section id="about" class="page">
-    <header class="topbar">
-      <h2>About</h2>
-    </header>
-    <p>This is my about page</p>
-  </section>
-
-  <!-- clients page -->
-  <section id="clients" class="page">
-    <header class="topbar">
-      <h2>Clients</h2>
-    </header>
-    <p>Hmm, there should be some clients right here...</p>
-  </section>
-
-  <!-- contact page -->
-  <section id="contact" class="page">
-    <header class="topbar">
-      <h2>Contact</h2>
-    </header>
-    <p>So, contact info?</p>
-  </section>
+    <div id="games-container"></div>
+  </article>
 
   <!-- loader  -->
   <div id="loader">

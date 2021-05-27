@@ -1,5 +1,7 @@
 "use strict";
 
+/*---------- Single Page Application ----------*/
+
 // hide all pages
 function hideAllPages() {
   let pages = document.querySelectorAll(".page");
@@ -45,6 +47,10 @@ function pageChange() {
 
 pageChange(); // called by default when the app is loaded for the first time
 
+
+
+/*---------- Loading animation show/hide function ----------*/
+
 function showLoader(show) {
   let loader = document.querySelector('#loader');
   if (show) {
@@ -53,4 +59,59 @@ function showLoader(show) {
     loader.classList.add("hide");
   }
 }
+
+
+
+/*---------- Fetch json file ----------*/
+
+let _games = [];
+
+fetch('json/games.json')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (json) {
+    console.log(json);
+    _games = json
+    appendProducts(json);
+  });
+
+//Appending the fetched information
+function appendProducts(games) {
+  let htmlTemplate = "";
+  for (let game of games) {
+    htmlTemplate += /*html*/`
+    <section class="game-section">
+      <img src="${game.img}">
+      <h2>${game.name}</h2>
+    </section>
+    `;
+  }
+  document.querySelector('#games-container').innerHTML = htmlTemplate;
+}
+
+
+
+/*---------- Search function ----------*/
+
+function search(value) {
+  let searchQuery = value.toLowerCase();
+  let filteredGames = [];
+  for (let game of _games) {
+    let name = game.name.toLowerCase();
+    if (name.includes(searchQuery)) {
+      filteredGames.push(game);
+    }
+    
+    /*let brand = product.brand.toLowerCase();
+    if (model.includes(searchQuery) || brand.includes(searchQuery)) {
+      filteredProducts.push(product);
+    }*/
+  }
+  appendProducts(filteredGames);
+}
+
+
+
+/*---------- Category function ----------*/
 
