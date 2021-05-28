@@ -3,36 +3,48 @@
     "name": "Tetris",
     "developer": "Alexey Pajitnov & Vladimir Pokhilko",
     "released": "1984",
-    "img": "img/tetris.jpg"
+    "img": "img/tetris.jpg",
+    "category": ["Arcade", "Strategy", "Puzzle"],
+    "rating": 3.2
   },
   {
     "name": "The Legend Of Zelda",
     "developer": "Nintendo",
     "released": "21-02-1986",
-    "img": "img/zelda.jpg"
+    "img": "img/zelda.jpg",
+    "category": ["Adventure", "RPG", "Puzzle"],
+    "rating": 4.8
   },
   {
     "name": "Bloyn",
     "developer": "MarB Production & thatRumme",
     "released": "29-04-2018",
-    "img": "img/bloyn.png"
+    "img": "img/bloyn.png",
+    "category": ["Arcade", "Bullet hell", "Survival"],
+    "rating": 4.2
   },
   {
     "name": "Pong",
     "developer": "Atari",
     "released": "29-11-1972",
-    "img": "img/pong.jpg"
+    "img": "img/pong.jpg",
+    "category": ["Arcade", "Multiplayer"],
+    "rating": 2.9
   },
   {
     "name": "Brick Breaker",
     "developer": "Unknown",
     "released": "Unknown",
-    "img": "img/brick-breaker.png"
+    "img": "img/brick-breaker.png",
+    "category": ["Arcade", "Levels"],
+    "rating": 2.1
   },
   {
     "name": "Quake",
     "developer": "GT Interactive",
     "released": "22-06-1996",
-    "img": "img/quake.jpg"
+    "img": "img/quake.jpg",
+    "category": ["Shooter", "FPS", "Action"],
+    "rating": 3.9
   }
 ]

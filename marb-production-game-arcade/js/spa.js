@@ -1,6 +1,6 @@
 "use strict";
 
-/*---------- Single Page Application ----------*/
+/* ---------- Single Page Application ---------- */
 
 // hide all pages
 function hideAllPages() {
@@ -49,7 +49,7 @@ pageChange(); // called by default when the app is loaded for the first time
 
 
 
-/*---------- Loading animation show/hide function ----------*/
+/* ---------- Loading animation show/hide function ---------- */
 
 function showLoader(show) {
   let loader = document.querySelector('#loader');
@@ -62,7 +62,37 @@ function showLoader(show) {
 
 
 
-/*---------- Fetch json file ----------*/
+/* ---------- Burger menu function ---------- */
+
+let isActive = false;
+
+var iconArray = [
+  '<img src="img/burger-icon.png" alt="Open menu"></img>',
+  '<img src="img/cross-icon.png" alt="Close menu">'
+];
+
+document.getElementById("burger-icon").addEventListener("click", hideShowMenu);
+
+function myFunction () {
+  
+}
+
+function hideShowMenu() {
+  
+  if (isActive) {
+    this.innerHTML = iconArray[0];
+    document.getElementById("menu-options").style.display = "none";
+    isActive = false;
+  }
+  else {
+    this.innerHTML = iconArray[1];
+    document.getElementById("menu-options").style.display = "block";
+    isActive = true;
+  }
+}
+
+
+/* ---------- Fetch json file ---------- */
 
 let _games = [];
 
@@ -73,17 +103,22 @@ fetch('json/games.json')
   .then(function (json) {
     console.log(json);
     _games = json
-    appendProducts(json);
+    appendGames(json);
   });
 
 //Appending the fetched information
-function appendProducts(games) {
+function appendGames(games) {
   let htmlTemplate = "";
   for (let game of games) {
     htmlTemplate += /*html*/`
     <section class="game-section">
       <img src="${game.img}">
       <h2>${game.name}</h2>
+      <div class="rating-number">
+        <p>${game.rating}</p>
+        <img class="star" src="img/star.png" alt="Rating">
+      </div>
+      <p class="home-categories">${game.category[0]} - ${game.category[1]}</p>
     </section>
     `;
   }
@@ -92,7 +127,7 @@ function appendProducts(games) {
 
 
 
-/*---------- Search function ----------*/
+/* ---------- Search function ---------- */
 
 function search(value) {
   let searchQuery = value.toLowerCase();
@@ -108,10 +143,10 @@ function search(value) {
       filteredProducts.push(product);
     }*/
   }
-  appendProducts(filteredGames);
+  appendGames(filteredGames);
 }
 
 
 
-/*---------- Category function ----------*/
+/* ---------- Category function ---------- */
 

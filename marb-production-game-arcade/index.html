@@ -15,9 +15,23 @@
 <body onhashchange="pageChange()">
   <!-- tabbar navigation -->
   <nav class="toolbar">
-    <img id="search-icon" src="img/search-icon-white.png" alt="Search">
-    <input type="search" placeholder="Search for a game" onkeyup="search(this.value)">
-    <img id="burger-icon" src="img/burger-icon.png" alt="Menu">
+    <div class="black-cover">
+      <div id="menu-options">
+        <a href="#">My profil</a>
+        <a href="#">Farvorites</a>
+        <a href="#">Achievements</a>
+        <a href="#">Statistics</a>
+        <a href="#">Your feedback</a>
+        <a id="last-a" href="#">Settings</a>
+      </div>
+    </div>
+    <div id="visible-toolbar">
+      <img id="search-icon" src="img/search-icon-white.png" alt="Search">
+      <input type="search" placeholder="Search for a game" onkeyup="search(this.value)">
+      <div id="burger-icon">
+        <img src="img/burger-icon.png" alt="Open menu">
+      </div>
+    </div>
   </nav>
 
   <!-- pages -->

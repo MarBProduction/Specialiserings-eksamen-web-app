@@ -30,12 +30,35 @@ h1 {
 
 /* ---------- toolbar styling ---------- */
 .toolbar {
-  background-color: var(--green-alpha1);
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 90;
+}
+.toolbar .black-cover {
+  background-color: black;
+}
+.toolbar #menu-options {
+  display: none;
+  background-color: var(--green-alpha2);
+  border: solid 4px var(--green);
+  text-align: center;
+  padding: 0 2em;
+}
+.toolbar #menu-options a {
+  display: block;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 2em;
+  padding: 0.5em 0;
+  border-bottom: solid 2px var(--white-alpha1);
+}
+.toolbar #menu-options #last-a {
+  border: none;
+}
+.toolbar #visible-toolbar {
+  background-color: var(--green-alpha1);
   border: solid 4px var(--green);
   height: 60px;
   box-sizing: border-box;
@@ -48,8 +71,11 @@ h1 {
   margin-right: 10px;
 }
 .toolbar #burger-icon {
-  max-width: 40px;
+  cursor: pointer;
   margin-left: 10px;
+}
+.toolbar #burger-icon img {
+  max-width: 40px;
 }
 .toolbar input[type=search] {
   height: 40px;
@@ -90,11 +116,26 @@ h1 {
 }
 .game-section img {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 .game-section h2 {
   font-weight: bold;
   margin: 0.5em 0;
+}
+.game-section .rating-number {
+  display: flex;
+  font-size: 1em;
+}
+.game-section .rating-number p {
+  align-self: flex-end;
+}
+.game-section .star {
+  max-width: 20px;
+  margin: 0 5px;
+}
+.game-section .home-categories {
+  font-size: 0.8em;
+  margin: 5px 0;
 }
 
 /* ---------- animations ---------- */
