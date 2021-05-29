@@ -14,20 +14,7 @@ function hideAllPages() {
 function showPage(pageId) {
   hideAllPages();
   document.querySelector(`${pageId}`).style.display = "block";
-  setActiveTab(pageId);
   showLoader(false);
-}
-
-// sets active toolbar/ menu item
-function setActiveTab(pageId) {
-  let pages = document.querySelectorAll(".toolbar a");
-  for (let page of pages) {
-    if (`${pageId}` === page.getAttribute("href")) {
-      page.classList.add("active");
-    } else {
-      page.classList.remove("active");
-    }
-  }
 }
 
 // navigate to a new view/page by changing href
@@ -35,13 +22,18 @@ function navigateTo(pageId) {
   location.href = `${pageId}`;
 }
 
+//Creating a variable to reset the search input field on page change
+let searchInput = document.querySelector('#search-field');
+
 // set default page or given page by the hash url
 // function is called 'onhashchange'
 function pageChange() {
+  showLoader(true);
   let page = "#home";
   if (location.hash) {
     page = location.hash;
   }
+  searchInput.value = "";
   showPage(page);
 }
 
@@ -66,17 +58,14 @@ function showLoader(show) {
 
 let isActive = false;
 
-var iconArray = [
+let iconArray = [
   '<img src="img/burger-icon.png" alt="Open menu"></img>',
   '<img src="img/cross-icon.png" alt="Close menu">'
 ];
 
 document.getElementById("burger-icon").addEventListener("click", hideShowMenu);
 
-function myFunction () {
-  
-}
-
+//Function to hide and show the menu and changing the menu icon
 function hideShowMenu() {
   
   if (isActive) {
@@ -96,17 +85,17 @@ function hideShowMenu() {
 
 let _games = [];
 
+//Fetching the information from my json file
 fetch('json/games.json')
   .then(function (response) {
     return response.json();
   })
   .then(function (json) {
-    console.log(json);
     _games = json
     appendGames(json);
   });
 
-//Appending the fetched information
+//Displaying the fetched information
 function appendGames(games) {
   let htmlTemplate = "";
   for (let game of games) {
@@ -129,6 +118,7 @@ function appendGames(games) {
 
 /* ---------- Search function ---------- */
 
+//Filtering the games that has the given search value
 function search(value) {
   let searchQuery = value.toLowerCase();
   let filteredGames = [];
@@ -143,7 +133,51 @@ function search(value) {
       filteredProducts.push(product);
     }*/
   }
-  appendGames(filteredGames);
+  appendFilteredGames(filteredGames);
+}
+
+//Displaying the games with the given search value
+function appendFilteredGames (games) {
+  let htmlTemplate = "";
+  for (let game of games) {
+    htmlTemplate += /*html*/`
+    <section class="searched-game">
+      <img src="${game.img}">
+      <div class="searched-game-info">
+        <h2>${game.name}</h2>
+        <div class="rating-number">
+          <p>${game.rating}</p>
+          <img class="star" src="img/star.png" alt="Rating">
+        </div>
+        <p class="home-categories">${game.category[0]} - ${game.category[1]}</p>
+      </div>
+    </section>
+    `;
+  }
+  document.querySelector('#search-results').innerHTML = htmlTemplate;
+}
+
+//Creating a function to hide the search results when the user is not no longer searching
+let searchBox = document.querySelector('#search-results');
+let burgerIcon = document.getElementById("burger-icon")
+
+document.body.addEventListener("click", hideShowSearchResults);
+
+function hideShowSearchResults () {
+  let searchIsFocused = (document.activeElement === searchInput);
+
+  if (searchIsFocused) {
+    searchBox.style.display = "block";
+
+    if (isActive) {
+      burgerIcon.innerHTML = iconArray[0];
+      document.getElementById("menu-options").style.display = "none";
+      isActive = false;
+    }
+  } 
+  else {
+    searchBox.style.display = "none";
+  }
 }
 
 

@@ -92,6 +92,42 @@ h1 {
   opacity: 1;
   font-style: italic;
 }
+.toolbar #search-results {
+  display: none;
+  background-color: var(--green-alpha2);
+  border: solid 4px var(--green);
+  padding: 0 1em;
+  max-height: calc(100vh - 60px);
+  overflow-y: scroll;
+}
+.toolbar .searched-game {
+  display: flex;
+  margin: 1em 0;
+}
+.searched-game img {
+  max-width: 60px;
+  margin-right: 0.5em;
+  border-radius: 10px;
+  align-self: center;
+}
+.searched-game h2 {
+  font-weight: bold;
+}
+.searched-game .rating-number {
+  display: flex;
+}
+.searched-game .rating-number p {
+  align-self: flex-end;
+}
+.searched-game .star {
+  max-width: 20px;
+  margin: 0 5px;
+  border-radius: 0;
+}
+.searched-game .home-categories {
+  font-size: 0.8em;
+  margin: 5px 0;
+}
 
 /* ---------- page styling ---------- */
 .page {
@@ -132,6 +168,7 @@ h1 {
 .game-section .star {
   max-width: 20px;
   margin: 0 5px;
+  border-radius: 0;
 }
 .game-section .home-categories {
   font-size: 0.8em;

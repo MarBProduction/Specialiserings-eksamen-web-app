@@ -16,6 +16,7 @@
   <!-- tabbar navigation -->
   <nav class="toolbar">
     <div class="black-cover">
+      <div id="search-results"></div>
       <div id="menu-options">
         <a href="#">My profil</a>
         <a href="#">Farvorites</a>
@@ -27,7 +28,7 @@
     </div>
     <div id="visible-toolbar">
       <img id="search-icon" src="img/search-icon-white.png" alt="Search">
-      <input type="search" placeholder="Search for a game" onkeyup="search(this.value)">
+      <input id="search-field" type="search" placeholder="Search for a game" onkeyup="search(this.value)">
       <div id="burger-icon">
         <img src="img/burger-icon.png" alt="Open menu">
       </div>
