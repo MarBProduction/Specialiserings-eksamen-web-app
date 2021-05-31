@@ -186,6 +186,14 @@ h1 {
 #game-page .segment {
   margin-bottom: 3em;
 }
+#game-page #go-back-arrow {
+  display: block;
+  margin-bottom: 1em;
+  width: 45px;
+}
+#game-page #go-back-arrow img {
+  height: 50px;
+}
 #game-page #icon-info-flex {
   display: flex;
 }
@@ -236,6 +244,10 @@ h1 {
 #game-page #description-text p {
   font-size: 0.9em;
 }
+#game-page #category-buttons {
+  display: flex;
+  overflow-x: scroll;
+}
 #game-page #category-buttons button {
   background-color: unset;
   color: var(--white);
@@ -245,25 +257,62 @@ h1 {
   border-radius: 50px;
   margin-right: 0.5em;
   cursor: pointer;
+  flex-shrink: 0;
 }
 #game-page #play-favorite {
   display: flex;
   justify-content: center;
 }
 #game-page #play-favorite button {
-  height: 70px;
+  height: 55px;
   background-color: var(--green-alpha1);
   border: solid 3px var(--green);
   border-radius: 10px;
   box-shadow: 3px 3px 4px var(--green);
   cursor: pointer;
 }
-#game-page #play-button {
+#game-page #play-favorite #play-button {
   color: var(--white);
-  font-size: 2.5em;
+  font-size: 2em;
   font-weight: bold;
-  padding: 0 1em;
+  padding: 0 2em;
   margin-right: 1em;
+}
+#game-page #play-favorite #favorite-button img{
+  max-width: 40px;
+}
+#game-page #preview-container {
+  display: flex;
+  overflow-x: scroll;
+  height: 160px;
+  align-items: flex-start;
+}
+#game-page #preview-container img {
+  margin-right: 1em;
+  height: 100%;
+}
+#game-page #feedback-button {
+  background-color: unset;
+  color: var(--white);
+  border: solid 2px var(--white);
+  border-radius: 50px;
+  font-size: 1.2em;
+  padding: 0.5em 1.5em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+#game-page .feedback {
+  margin-bottom: 1em;
+  margin-top: 2em;
+}
+#game-page .feedback .feedback-user-name {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+#game-page .feedback .feedback-posted-date {
+  margin-bottom: 0.5em;
 }
 
 /* ---------- animations ---------- */

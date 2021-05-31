@@ -193,6 +193,9 @@ function hideShowSearchResults () {
 function changeGamePage(gameId) {
   let theGame;
   let htmlTemplate = "";
+  let categoriesHtmlTemplate = "";
+  let previewHtmlTemplate = "";
+  let feedbackHtmlTemplate = "";
 
   for (const game of _games) {
     if (game.id == gameId) {
@@ -200,8 +203,33 @@ function changeGamePage(gameId) {
     }
   }
 
+  for (const category of theGame.category) {
+    categoriesHtmlTemplate += /*html*/`
+      <button href="#">${category}</button>
+    `;
+  }
+
+  for (const preview of theGame.preview) {
+    previewHtmlTemplate += /*html*/`
+      <img src="${preview}">
+    `;
+  }
+
+  for (const feedback of theGame.feedback) {
+    feedbackHtmlTemplate += /*html*/`
+      <div class="feedback">
+        <p class="feedback-user-name">${feedback.userName}</p>
+        <p class="feedback-posted-date">${feedback.postedDate}</p>
+        <p class="feedback-content">${feedback.feedbackContent}</p>
+      </div>
+    `;
+  }
+
+
+
   htmlTemplate = /*html*/`
     <section>
+      <a href="#home" id="go-back-arrow"><img src="img/left-arrow.png" alt="Go back"></a>
       <div id="icon-info-flex" class="segment">
         <img id="icon" src="${theGame.img}">
         <div id="main-info">
@@ -229,19 +257,22 @@ function changeGamePage(gameId) {
         <img id="description-arrow" src="img/right-arrow.png" alt="Show more">
       </div>
       <div id="category-buttons" class="segment">
-        <button href="#">${theGame.category[0]}</button>
-        <button href="#">${theGame.category[1]}</button>
+        ${categoriesHtmlTemplate}
       </div>
-      <div id="play-favorite">
+      <div id="play-favorite" class="segment">
         <button id="play-button" href="#">PLAY</button>
         <button id="favorite-button"><img src="img/favorite-icon.png" alt="Add to favorite"></button>
       </div>
+      <div id="preview-container" class="segment">
+        ${previewHtmlTemplate}
+      </div>
+      <button id="feedback-button" class="segment" href="#">Write your feedback</button>
+      <h3>Feedback (${theGame.feedbackCount})</h3>
+      <div id="feedback-container">
+        ${feedbackHtmlTemplate}
+      </div>
     </section>
   `;
-
-      /*<div id="preview-slide">
-
-      </div>*/
 
   document.querySelector('#game-page').innerHTML = htmlTemplate;
   
