@@ -145,11 +145,14 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
 }
-
-.game-section {
+#games-container a {
+  display: block;
+  color: var(--white);
+  text-decoration: none;
   width: 35%;
   margin: 1em;
 }
+
 .game-section img {
   width: 100%;
   border-radius: 20px;
@@ -173,6 +176,94 @@ h1 {
 .game-section .home-categories {
   font-size: 0.8em;
   margin: 5px 0;
+}
+
+/* ---------- game page styling ---------- */
+#game-page {
+  padding: 1em 1em 75px;
+  line-height: normal;
+}
+#game-page .segment {
+  margin-bottom: 3em;
+}
+#game-page #icon-info-flex {
+  display: flex;
+}
+#game-page #icon {
+  width: 30%;
+  border-radius: 20px;
+  margin-right: 1em;
+  align-self: flex-start;
+}
+#game-page #main-info h2 {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+#game-page #main-info #developer {
+  margin: 0.5em 0;
+}
+#game-page #popularity-info {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: flex-end;
+}
+#game-page #popularity-info #rating-number {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 5px;
+}
+#game-page #popularity-info #rating-number p {
+  font-size: 2em;
+  margin-right: 10px;
+}
+#game-page #popularity-info #rating-number #top-star {
+  max-width: 40px;
+}
+#game-page #popularity-info #played-count {
+  font-size: 2em;
+}
+#game-page h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+#game-page #description-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+#game-page #description-text p {
+  font-size: 0.9em;
+}
+#game-page #category-buttons button {
+  background-color: unset;
+  color: var(--white);
+  border: solid 2px var(--white);
+  padding: 0.3em 1.5em;
+  font-size: 0.9em;
+  border-radius: 50px;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+#game-page #play-favorite {
+  display: flex;
+  justify-content: center;
+}
+#game-page #play-favorite button {
+  height: 70px;
+  background-color: var(--green-alpha1);
+  border: solid 3px var(--green);
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px var(--green);
+  cursor: pointer;
+}
+#game-page #play-button {
+  color: var(--white);
+  font-size: 2.5em;
+  font-weight: bold;
+  padding: 0 1em;
+  margin-right: 1em;
 }
 
 /* ---------- animations ---------- */

@@ -100,18 +100,24 @@ function appendGames(games) {
   let htmlTemplate = "";
   for (let game of games) {
     htmlTemplate += /*html*/`
-    <section class="game-section">
-      <img src="${game.img}">
-      <h2>${game.name}</h2>
-      <div class="rating-number">
-        <p>${game.rating}</p>
-        <img class="star" src="img/star.png" alt="Rating">
-      </div>
-      <p class="home-categories">${game.category[0]} - ${game.category[1]}</p>
-    </section>
+    <a href="#game-page" id="${game.id}" onclick="changeGamePage('${game.id}')">
+      <section class="game-section">
+        <img src="${game.img}">
+        <h2>${game.name}</h2>
+        <div class="rating-number">
+          <p>${game.rating}</p>
+          <img class="star" src="img/star.png" alt="Rating">
+        </div>
+        <p class="home-categories">${game.category[0]} - ${game.category[1]}</p>
+      </section>
+    </a>
     `;
   }
   document.querySelector('#games-container').innerHTML = htmlTemplate;
+
+  /*for (const game of _games) {
+    document.querySelector("#" + game.id).addEventListener("click", changeGamePage(game.id));
+  }*/
 }
 
 
@@ -159,7 +165,7 @@ function appendFilteredGames (games) {
 
 //Creating a function to hide the search results when the user is not no longer searching
 let searchBox = document.querySelector('#search-results');
-let burgerIcon = document.getElementById("burger-icon")
+let burgerIcon = document.getElementById("burger-icon");
 
 document.body.addEventListener("click", hideShowSearchResults);
 
@@ -178,6 +184,67 @@ function hideShowSearchResults () {
   else {
     searchBox.style.display = "none";
   }
+}
+
+
+
+/* ---------- Change Game Page container function ---------- */
+
+function changeGamePage(gameId) {
+  let theGame;
+  let htmlTemplate = "";
+
+  for (const game of _games) {
+    if (game.id == gameId) {
+      theGame = game;
+    }
+  }
+
+  htmlTemplate = /*html*/`
+    <section>
+      <div id="icon-info-flex" class="segment">
+        <img id="icon" src="${theGame.img}">
+        <div id="main-info">
+          <h2>${theGame.name}</h2>
+          <p id="developer">${theGame.developer}</p>
+          <p id="release-date">${theGame.released}</p>
+        </div>
+      </div>
+      <div id="popularity-info" class="segment">
+        <div>
+          <div id="rating-number">
+            <p>${theGame.rating}</p>
+            <img id="top-star" src="img/star.png" alt="Rating">
+          </div>
+          <p>${theGame.feedbackCount} feedback</p>
+        </div>
+        <div>
+          <p id="played-count">${theGame.played}</p>
+          <p>Times played</p>
+        </div>
+      </div>
+      <h3>Description</h3>
+      <div id="description-text">
+        <p>${theGame.description}</p>
+        <img id="description-arrow" src="img/right-arrow.png" alt="Show more">
+      </div>
+      <div id="category-buttons" class="segment">
+        <button href="#">${theGame.category[0]}</button>
+        <button href="#">${theGame.category[1]}</button>
+      </div>
+      <div id="play-favorite">
+        <button id="play-button" href="#">PLAY</button>
+        <button id="favorite-button"><img src="img/favorite-icon.png" alt="Add to favorite"></button>
+      </div>
+    </section>
+  `;
+
+      /*<div id="preview-slide">
+
+      </div>*/
+
+  document.querySelector('#game-page').innerHTML = htmlTemplate;
+  
 }
 
 

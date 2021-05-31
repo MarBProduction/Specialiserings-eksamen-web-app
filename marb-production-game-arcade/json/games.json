@@ -1,50 +1,80 @@
 [
   {
+    "id": "tetris",
     "name": "Tetris",
     "developer": "Alexey Pajitnov & Vladimir Pokhilko",
     "released": "1984",
     "img": "img/tetris.jpg",
     "category": ["Arcade", "Strategy", "Puzzle"],
-    "rating": 3.2
+    "rating": 3.2,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus aliquam viverra. Fusce euismod, urna in iaculis pulvinar, diam odio viverra risus, vitae imperdiet metus lectus a ligula. Donec facilisis gravida mauris sit amet varius. Sed dolor tellus, pulvinar in libero eu, rhoncus vehicula velit. Duis pulvinar fermentum vehicula. Maecenas mattis arcu vel purus imperdiet, vel tincidunt metus ultrices. Duis convallis dictum tortor vitae pulvinar.",
+    "preview": ["img/tetris-preview1.jpg", "img/tetris-preview2.jpg", "img/tetris-preview3.jpg"],
+    "played": 320,
+    "feedbackCount": 12
   },
   {
+    "id": "the-legend-of-zelda",
     "name": "The Legend Of Zelda",
     "developer": "Nintendo",
     "released": "21-02-1986",
     "img": "img/zelda.jpg",
     "category": ["Adventure", "RPG", "Puzzle"],
-    "rating": 4.8
+    "rating": 4.8,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus aliquam viverra. Fusce euismod, urna in iaculis pulvinar, diam odio viverra risus, vitae imperdiet metus lectus a ligula. Donec facilisis gravida mauris sit amet varius. Sed dolor tellus, pulvinar in libero eu, rhoncus vehicula velit. Duis pulvinar fermentum vehicula. Maecenas mattis arcu vel purus imperdiet, vel tincidunt metus ultrices. Duis convallis dictum tortor vitae pulvinar.",
+    "preview": ["img/zelda-preview1.png", "img/zelda-preview2.jpg", "img/zelda-preview3.jpg", "img/zelda-preview4.jpg"],
+    "played": 1258,
+    "feedbackCount": 134
   },
   {
+    "id": "bloyn",
     "name": "Bloyn",
     "developer": "MarB Production & thatRumme",
     "released": "29-04-2018",
     "img": "img/bloyn.png",
     "category": ["Arcade", "Bullet hell", "Survival"],
-    "rating": 4.2
+    "rating": 4.2,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus aliquam viverra. Fusce euismod, urna in iaculis pulvinar, diam odio viverra risus, vitae imperdiet metus lectus a ligula. Donec facilisis gravida mauris sit amet varius. Sed dolor tellus, pulvinar in libero eu, rhoncus vehicula velit. Duis pulvinar fermentum vehicula. Maecenas mattis arcu vel purus imperdiet, vel tincidunt metus ultrices. Duis convallis dictum tortor vitae pulvinar.",
+    "preview": ["img/bloyn-preview1.JPG", "img/bloyn-preview2.JPG", "img/bloyn-preview3.JPG"],
+    "played": 52,
+    "feedbackCount": 3
   },
   {
+    "id": "pong",
     "name": "Pong",
     "developer": "Atari",
     "released": "29-11-1972",
     "img": "img/pong.jpg",
     "category": ["Arcade", "Multiplayer"],
-    "rating": 2.9
+    "rating": 2.9,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus aliquam viverra. Fusce euismod, urna in iaculis pulvinar, diam odio viverra risus, vitae imperdiet metus lectus a ligula. Donec facilisis gravida mauris sit amet varius. Sed dolor tellus, pulvinar in libero eu, rhoncus vehicula velit. Duis pulvinar fermentum vehicula. Maecenas mattis arcu vel purus imperdiet, vel tincidunt metus ultrices. Duis convallis dictum tortor vitae pulvinar.",
+    "preview": ["img/pong-preview1.jpg", "img/pong-preview2.jpg"],
+    "played": 224,
+    "feedbackCount": 9
   },
   {
+    "id": "brick-breaker",
     "name": "Brick Breaker",
     "developer": "Unknown",
     "released": "Unknown",
     "img": "img/brick-breaker.png",
     "category": ["Arcade", "Levels"],
-    "rating": 2.1
+    "rating": 2.1,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus aliquam viverra. Fusce euismod, urna in iaculis pulvinar, diam odio viverra risus, vitae imperdiet metus lectus a ligula. Donec facilisis gravida mauris sit amet varius. Sed dolor tellus, pulvinar in libero eu, rhoncus vehicula velit. Duis pulvinar fermentum vehicula. Maecenas mattis arcu vel purus imperdiet, vel tincidunt metus ultrices. Duis convallis dictum tortor vitae pulvinar.",
+    "preview": ["img/brick-breaker-preview1.jpg", "img/brick-breaker-preview2.jpg", "img/brick-breaker-preview3.jpg"],
+    "played": 158,
+    "feedbackCount": 6
   },
   {
+    "id": "quake",
     "name": "Quake",
     "developer": "GT Interactive",
     "released": "22-06-1996",
     "img": "img/quake.jpg",
     "category": ["Shooter", "FPS", "Action"],
-    "rating": 3.9
+    "rating": 3.9,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus aliquam viverra. Fusce euismod, urna in iaculis pulvinar, diam odio viverra risus, vitae imperdiet metus lectus a ligula. Donec facilisis gravida mauris sit amet varius. Sed dolor tellus, pulvinar in libero eu, rhoncus vehicula velit. Duis pulvinar fermentum vehicula. Maecenas mattis arcu vel purus imperdiet, vel tincidunt metus ultrices. Duis convallis dictum tortor vitae pulvinar.",
+    "preview": ["img/quake-preview1.jpg", "img/quake-preview2.jpg", "img/quake-preview3.jpg"],
+    "played": 2540,
+    "feedbackCount": 211
   }
 ]
