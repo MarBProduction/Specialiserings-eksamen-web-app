@@ -35,8 +35,8 @@
     </div>
   </nav>
 
-  <!-- pages -->
-  <!-- home page -->
+  <!-- Pages -->
+  <!-- Home page -->
   <article id="home" class="page">
     <header>
       <h1>MarB Production's Game Arcade</h1>
@@ -44,8 +44,29 @@
     <div id="games-container"></div>
   </article>
 
-  <!-- Game Page -->
+  <!-- Game page -->
   <article id="game-page" class="page"></article>
+
+  <!-- Feedback form -->
+  <article id="feedback-form" class="page">
+    <a href="#home" id="feed-go-back-arrow"><img src="img/left-arrow.png" alt="Go back"></a>
+    <h2>I really appreciate you giving me feedback</h2>
+    <form>
+      <label for="user-name">What is your user name?</label><br>
+      <input id="user-name" type="text" name="user name" placeholder="User name"><br>
+      <label for="date-posted">What is the date today?</label><br>
+      <input id="date-posted" type="text" name="date posted" placeholder="example: 25-05-2021"><br>
+      <label for="feedback-text">Write your feedback here</label><br>
+      <textarea name="feedback-text" id="feedback-text" cols="30" rows="10" placeholder="Write your feedback here"></textarea><br>
+      <button type="button" name="Save feedback" onclick="addFeedback()">Save</button>
+    </form>
+    <p id="form-prototype-disclaimer">
+      DISCLAIMER:<br>
+      For the finished version the user name and posted date will automatically 
+      be filled in.<br>
+      There will also be a rating option
+    </p>
+  </article>
 
   <!-- loader  -->
   <div id="loader">

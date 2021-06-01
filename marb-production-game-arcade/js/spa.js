@@ -205,7 +205,7 @@ function changeGamePage(gameId) {
 
   for (const category of theGame.category) {
     categoriesHtmlTemplate += /*html*/`
-      <button href="#">${category}</button>
+      <button href="#" type="button">${category}</button>
     `;
   }
 
@@ -260,13 +260,13 @@ function changeGamePage(gameId) {
         ${categoriesHtmlTemplate}
       </div>
       <div id="play-favorite" class="segment">
-        <button id="play-button" href="#">PLAY</button>
-        <button id="favorite-button"><img src="img/favorite-icon.png" alt="Add to favorite"></button>
+        <button id="play-button" type="button" href="#">PLAY</button>
+        <button id="favorite-button" type="button"><img src="img/favorite-icon.png" alt="Add to favorite"></button>
       </div>
       <div id="preview-container" class="segment">
         ${previewHtmlTemplate}
       </div>
-      <button id="feedback-button" class="segment" href="#">Write your feedback</button>
+      <a href="#feedback-form" id="feedback-button" type="button" class="segment" onclick="transferGameId('${theGame.id}')">Write your feedback</a>
       <h3>Feedback (${theGame.feedbackCount})</h3>
       <div id="feedback-container">
         ${feedbackHtmlTemplate}
@@ -276,6 +276,46 @@ function changeGamePage(gameId) {
 
   document.querySelector('#game-page').innerHTML = htmlTemplate;
   
+}
+
+
+
+/* ---------- Feedback function ---------- */
+
+let feedbackGameId = "";
+
+function transferGameId (gameId) {
+  feedbackGameId = gameId;
+}
+
+function addFeedback () {
+  let theGameToAddFeedback;
+  console.log(feedbackGameId);
+
+  let userName = document.querySelector('#user-name').value;
+  let postedDate = document.querySelector('#date-posted').value;
+  let feedbackContent = document.querySelector('#feedback-text').value;
+
+  if (userName && postedDate && feedbackContent) {
+    for (const game of _games) {
+      if (game.id == feedbackGameId) {
+        theGameToAddFeedback = game;
+      }
+    }
+
+    theGameToAddFeedback.feedback.push({
+      userName,
+      postedDate,
+      feedbackContent
+    });
+
+    changeGamePage(feedbackGameId);
+    navigateTo('#game-page');
+
+  document.querySelector('#user-name').value = "";
+  document.querySelector('#date-posted').value = "";
+  document.querySelector('#feedback-text').value = "";
+  }
 }
 
 
