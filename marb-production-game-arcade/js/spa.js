@@ -22,8 +22,9 @@ function navigateTo(pageId) {
   location.href = `${pageId}`;
 }
 
-//Creating a variable to reset the search input field on page change
+//Creating a variables to reset the search input field and value on page change
 let searchInput = document.querySelector('#search-field');
+let searchQuery = "";
 
 // set default page or given page by the hash url
 // function is called 'onhashchange'
@@ -33,7 +34,7 @@ function pageChange() {
   if (location.hash) {
     page = location.hash;
   }
-  searchInput.value = "";
+  resetSearch();
   showPage(page);
 }
 
@@ -114,30 +115,28 @@ function appendGames(games) {
     `;
   }
   document.querySelector('#games-container').innerHTML = htmlTemplate;
-
-  /*for (const game of _games) {
-    document.querySelector("#" + game.id).addEventListener("click", changeGamePage(game.id));
-  }*/
 }
 
 
 
 /* ---------- Search function ---------- */
 
+//Function to reset the search field and value
+function resetSearch() {
+  searchInput.value = "";
+  searchQuery = "";
+  document.querySelector('#search-results').innerHTML = "";
+}
+
 //Filtering the games that has the given search value
 function search(value) {
-  let searchQuery = value.toLowerCase();
+  searchQuery = value.toLowerCase();
   let filteredGames = [];
   for (let game of _games) {
     let name = game.name.toLowerCase();
     if (name.includes(searchQuery)) {
       filteredGames.push(game);
     }
-    
-    /*let brand = product.brand.toLowerCase();
-    if (model.includes(searchQuery) || brand.includes(searchQuery)) {
-      filteredProducts.push(product);
-    }*/
   }
   appendFilteredGames(filteredGames);
 }
@@ -147,17 +146,19 @@ function appendFilteredGames (games) {
   let htmlTemplate = "";
   for (let game of games) {
     htmlTemplate += /*html*/`
-    <section class="searched-game">
-      <img src="${game.img}">
-      <div class="searched-game-info">
-        <h2>${game.name}</h2>
-        <div class="rating-number">
-          <p>${game.rating}</p>
-          <img class="star" src="img/star.png" alt="Rating">
+    <a href="#game-page" id="${game.id}" onclick="changeGamePage('${game.id}')">
+      <section class="searched-game">
+        <img src="${game.img}">
+        <div class="searched-game-info">
+          <h2>${game.name}</h2>
+          <div class="rating-number">
+            <p>${game.rating}</p>
+            <img class="star" src="img/star.png" alt="Rating">
+          </div>
+          <p class="home-categories">${game.category[0]} - ${game.category[1]}</p>
         </div>
-        <p class="home-categories">${game.category[0]} - ${game.category[1]}</p>
-      </div>
-    </section>
+      </section>
+    </a>
     `;
   }
   document.querySelector('#search-results').innerHTML = htmlTemplate;
@@ -170,9 +171,8 @@ let burgerIcon = document.getElementById("burger-icon");
 document.body.addEventListener("click", hideShowSearchResults);
 
 function hideShowSearchResults () {
-  let searchIsFocused = (document.activeElement === searchInput);
 
-  if (searchIsFocused) {
+  if (document.activeElement === searchInput) {
     searchBox.style.display = "block";
 
     if (isActive) {
@@ -290,7 +290,6 @@ function transferGameId (gameId) {
 
 function addFeedback () {
   let theGameToAddFeedback;
-  console.log(feedbackGameId);
 
   let userName = document.querySelector('#user-name').value;
   let postedDate = document.querySelector('#date-posted').value;
@@ -312,13 +311,10 @@ function addFeedback () {
     changeGamePage(feedbackGameId);
     navigateTo('#game-page');
 
-  document.querySelector('#user-name').value = "";
-  document.querySelector('#date-posted').value = "";
-  document.querySelector('#feedback-text').value = "";
+    document.querySelector('#user-name').value = "";
+    document.querySelector('#date-posted').value = "";
+    document.querySelector('#feedback-text').value = "";
   }
 }
 
-
-
-/* ---------- Category function ---------- */
 

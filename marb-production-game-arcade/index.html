@@ -12,71 +12,77 @@
   <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
 </head>
 
-<body onhashchange="pageChange()">
-  <!-- tabbar navigation -->
-  <nav class="toolbar">
-    <div class="black-cover">
-      <div id="search-results"></div>
-      <div id="menu-options">
-        <a href="#">My profil</a>
-        <a href="#">Farvorites</a>
-        <a href="#">Achievements</a>
-        <a href="#">Statistics</a>
-        <a href="#">Your feedback</a>
-        <a id="last-a" href="#">Settings</a>
+<div id="wrapper">
+  <body onhashchange="pageChange()">
+    <!-- tabbar navigation -->
+    <nav class="toolbar">
+      <div id="toolbar-wrapper">
+        <div class="black-cover">
+          <div id="search-results"></div>
+          <div id="menu-options">
+            <a href="#">My profil</a>
+            <a href="#">Farvorites</a>
+            <a href="#">Achievements</a>
+            <a href="#">Statistics</a>
+            <a href="#">Your feedback</a>
+            <a id="last-a" href="#">Settings</a>
+          </div>
+        </div>
+        <div id="visible-toolbar">
+          <div id="search-icon-field">
+            <img id="search-icon" src="img/search-icon-white.png" alt="Search">
+            <input id="search-field" type="search" placeholder="Search for a game" onkeyup="search(this.value)">
+          </div>
+          <div id="burger-icon">
+            <img src="img/burger-icon.png" alt="Open menu">
+          </div>
+        </div>
       </div>
+    </nav>
+
+    <!-- Pages -->
+    <!-- Home page -->
+    <article id="home" class="page">
+      <header>
+        <h1>MarB Production's Game Arcade</h1>
+      </header>
+      <div id="games-container"></div>
+    </article>
+
+    <!-- Game page -->
+    <article id="game-page" class="page"></article>
+
+    <!-- Feedback form -->
+    <article id="feedback-form" class="page">
+      <a href="#home" id="feed-go-back-arrow"><img src="img/left-arrow.png" alt="Go back"></a>
+      <h2>I really appreciate you giving me feedback</h2>
+      <form>
+        <label for="user-name">What is your user name?</label><br>
+        <input id="user-name" type="text" name="user name" placeholder="User name"><br>
+        <label for="date-posted">What is the date today?</label><br>
+        <input id="date-posted" type="text" name="date posted" placeholder="example: 25-05-2021"><br>
+        <label for="feedback-text">Write your feedback here</label><br>
+        <textarea name="feedback-text" id="feedback-text" cols="30" rows="10" placeholder="Write your feedback here"></textarea><br>
+        <button type="button" name="Save feedback" onclick="addFeedback()">Save</button>
+      </form>
+      <p id="form-prototype-disclaimer">
+        DISCLAIMER:<br>
+        For the finished version the user name and posted date will automatically 
+        be filled in.<br>
+        There will also be a rating option
+      </p>
+    </article>
+
+    <!-- loader  -->
+    <div id="loader">
+      <div class="spinner"></div>
     </div>
-    <div id="visible-toolbar">
-      <img id="search-icon" src="img/search-icon-white.png" alt="Search">
-      <input id="search-field" type="search" placeholder="Search for a game" onkeyup="search(this.value)">
-      <div id="burger-icon">
-        <img src="img/burger-icon.png" alt="Open menu">
-      </div>
-    </div>
-  </nav>
 
-  <!-- Pages -->
-  <!-- Home page -->
-  <article id="home" class="page">
-    <header>
-      <h1>MarB Production's Game Arcade</h1>
-    </header>
-    <div id="games-container"></div>
-  </article>
-
-  <!-- Game page -->
-  <article id="game-page" class="page"></article>
-
-  <!-- Feedback form -->
-  <article id="feedback-form" class="page">
-    <a href="#home" id="feed-go-back-arrow"><img src="img/left-arrow.png" alt="Go back"></a>
-    <h2>I really appreciate you giving me feedback</h2>
-    <form>
-      <label for="user-name">What is your user name?</label><br>
-      <input id="user-name" type="text" name="user name" placeholder="User name"><br>
-      <label for="date-posted">What is the date today?</label><br>
-      <input id="date-posted" type="text" name="date posted" placeholder="example: 25-05-2021"><br>
-      <label for="feedback-text">Write your feedback here</label><br>
-      <textarea name="feedback-text" id="feedback-text" cols="30" rows="10" placeholder="Write your feedback here"></textarea><br>
-      <button type="button" name="Save feedback" onclick="addFeedback()">Save</button>
-    </form>
-    <p id="form-prototype-disclaimer">
-      DISCLAIMER:<br>
-      For the finished version the user name and posted date will automatically 
-      be filled in.<br>
-      There will also be a rating option
-    </p>
-  </article>
-
-  <!-- loader  -->
-  <div id="loader">
-    <div class="spinner"></div>
-  </div>
-
-  <!-- SPA functionality  -->
-  <script src="js/spa.js"></script>
-  <!-- main js file -->
-  <script src="js/main.js"></script>
-</body>
+    <!-- SPA functionality  -->
+    <script src="js/spa.js"></script>
+    <!-- main js file -->
+    <script src="js/main.js"></script>
+  </body>
+</div>
 
 </html>

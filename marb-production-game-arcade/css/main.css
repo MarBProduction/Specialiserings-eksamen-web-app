@@ -17,6 +17,11 @@ html {
   font-weight: 200;
 }
 
+#wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 body {
   background-image: url(../img/mobile-background.jpg);
   background-size: 100%;
@@ -35,6 +40,10 @@ h1 {
   left: 0;
   right: 0;
   z-index: 90;
+}
+.toolbar #toolbar-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
 }
 .toolbar .black-cover {
   background-color: black;
@@ -65,6 +74,12 @@ h1 {
   display: flex;
   align-items: center;
   padding: 5px;
+  justify-content: space-between;
+}
+.toolbar #search-icon-field {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
 }
 .toolbar #search-icon {
   max-width: 40px;
@@ -92,6 +107,7 @@ h1 {
   opacity: 1;
   font-style: italic;
 }
+
 .toolbar #search-results {
   display: none;
   background-color: var(--green-alpha2);
@@ -99,6 +115,10 @@ h1 {
   padding: 0 1em;
   max-height: calc(100vh - 60px);
   overflow-y: scroll;
+}
+.toolbar #search-results a {
+  text-decoration: none;
+  color: var(--white);
 }
 .toolbar .searched-game {
   display: flex;
@@ -144,6 +164,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
 }
 #games-container a {
   display: block;
@@ -151,6 +172,7 @@ h1 {
   text-decoration: none;
   width: 35%;
   margin: 1em;
+  max-width: 150px;
 }
 
 .game-section img {
@@ -183,6 +205,16 @@ h1 {
   padding: 1em 1em 75px;
   line-height: normal;
 }
+/*#game-page ::-webkit-scrollbar {
+  height: 10px;
+}
+#game-page ::-webkit-scrollbar-track {
+  background: unset;
+}
+#game-page ::-webkit-scrollbar-thumb {
+  background: var(--white-alpha1);
+  border-radius: 20px;
+}*/
 #game-page .segment {
   margin-bottom: 3em;
 }
@@ -202,6 +234,7 @@ h1 {
   border-radius: 20px;
   margin-right: 1em;
   align-self: flex-start;
+  max-width: 120px;
 }
 #game-page #main-info h2 {
   font-weight: bold;
@@ -295,8 +328,10 @@ h1 {
   display: block;
   text-decoration: none;
   color: var(--white);
-  border: solid 2px var(--white);
-  border-radius: 50px;
+  background-color: var(--green-alpha1);
+  border: solid 3px var(--green);
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px var(--green);
   font-size: 1.2em;
   padding: 0.5em 1.5em;
   margin-left: auto;
@@ -439,4 +474,54 @@ h1 {
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s 0.4s, opacity 0.4s linear;
+}
+
+
+
+/* ---------- media query ---------- */
+
+/* Only change the scrollbar styling for desktop browsers*/
+@media (any-hover: hover) {
+  /*Scrollbar styling for Firefox*/
+  #preview-container, 
+  #category-buttons {
+    scrollbar-width: thin;
+    scrollbar-color: var(--white-alpha1) rgba(255, 255, 255, 0);
+  }
+
+  /*Scrollbar styling for Edge, Chrome and Safari*/
+  #game-page ::-webkit-scrollbar {
+    height: 10px;
+  }
+  #game-page ::-webkit-scrollbar-track {
+    background: unset;
+  }
+  #game-page ::-webkit-scrollbar-thumb {
+    background: var(--white-alpha1);
+    border-radius: 20px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  #games-container a {
+    margin: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  body {
+    background-image: url(../img/desktop-background.jpg);
+  }
+
+  .game-section .home-categories {
+    font-size: 1em;
+  }
+
+  #game-page #preview-container {
+    height: 250px;
+  }
 }
